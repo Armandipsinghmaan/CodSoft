@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h2>Rock Paper Scissors</h2>
+    <form method="post" class="form-inline justify-content-center">
+        <div class="form-group mx-2">
+            <select class="form-control" name="choice">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mx-2" type="submit">Play</button>
+    </form>
+    {% if user_choice %}
+    <div class="mt-4">
+        <p>You chose: <strong>{{ user_choice }}</strong></p>
+        <p>Computer chose: <strong>{{ computer_choice }}</strong></p>
+        <p><strong>{{ result }}</strong></p>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Play Again</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
